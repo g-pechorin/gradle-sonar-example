@@ -1,45 +1,22 @@
-apply plugin: 'cpp'
+apply plugin: 'java'
 
-model {
-    buildTypes {
-        debug
-        release
-    }
 
-    platforms {
-        x86 {
-            architecture "x86"
-        }
-        x64 {
-            architecture "x86_64"
-        }
-        itanium {
-            architecture "ia-64"
-        }
-    }
 
-    flavors {
-        community
-        enterprise
-    }
+apply plugin: 'application'
+mainClassName = 'uon.sam.HelloWorld'
 
-    components {
-        hello(NativeLibrarySpec) {
-            binaries.all {
-                cppCompiler.define "HELLO_EXPORT"
-                if (flavor == flavors.enterprise) {
-                    cppCompiler.define "ENTERPRISE"
-                }
-            }
-        }
-        main(NativeExecutableSpec) {
-            binaries.all {
-                lib library: "hello"
-            }
-        }
+
+
+
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
     }
+  }
+  dependencies {
+    classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.1-rc3"
+  }
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.13'
-}
+apply plugin: "org.sonarqube"
