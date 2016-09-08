@@ -1,6 +1,13 @@
 This is PAL's forked thingie with Gradle.
 
-# Usage
+# Usage (Eclipse)
+
+* `File` > `Import ...` (not open)
+* `Gradle` > `Gradle Project`
+* Select the folder containing `build.gradle` as "Project root directory" and accept all other defaults
+* Right click and run `uon.sam.HelloWorld` as a Java Application
+
+# Usage (Command Line)
 
 * run `gradlew run` and you'll see java build and a "Hello World"
  * Java builds because;
