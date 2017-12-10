@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Analyse') {
+            steps {
+                sh chmod +=rwx ./gradle
+                sh ./gradlew sonarqube -Dsonar.host.url=http://192.168.0.6:9090 -Dsonar.login=e746f6844ea2cfaa73a12c3b194d636ab4f72c05
+            }
+        }
+    }
+}
