@@ -1,3 +1,8 @@
+This readme is out of date
+
+
+
+
 This is PAL's forked thingie with Gradle.
 
 # Usage (Eclipse)
