@@ -1,37 +1,33 @@
 package uon.sam;
 
-import java.io.PrintStream;
+import junit.framework.TestCase;
+
 import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
+public class SkullTest extends TestCase {
 
-// copied from http://www.vogella.com/tutorials/JUnit/article.html
-public class SkullTest {
+    public void testCreateSkull() {
+        Skull tester = new Skull();
 
-  @Test
-  public void createSkull() {
-    Skull tester = new Skull();
+        // assert statements
+        assertEquals("bone", tester.name);
+    }
 
-    // assert statements
-    assertEquals("bone", tester.name);
-  }
+    public void testRenameSkull() throws Exception {
 
-    @Test
-    public void renmaeSkull() throws Exception {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
-      ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        Skull tester = new Skull();
 
-      Skull tester = new Skull();
+        tester.name = "clikety-clak";
 
-      tester.name = "clikety-clak";
+        tester.print(new PrintStream(outputStream));
 
-      tester.print(new PrintStream(outputStream));
-
-      // assert statements
-      assertEquals(
-        "I'm just a skull, which is a type of `clikety-clak`",
-        new String(outputStream.toByteArray(), "UTF-8")
-      );
+        // assert statements
+        assertEquals(
+                "I'm just a skull, which is a type of `clikety-clak`",
+                new String(outputStream.toByteArray(), "UTF-8")
+        );
     }
 }

@@ -1,28 +1,31 @@
-
 plugins {
-	id "org.sonarqube" version "2.6.2"
-	id 'java'
-	id 'application'
+    id "org.sonarqube" version "2.6.2"
+    id 'java'
+    id 'application'
 }
 
 mainClassName = 'uon.sam.HelloWorld'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
+test {
+    reports {
+        junitXml.enabled = true
+        html.enabled = false
+    }
+}
 
 dependencies {
-	testCompile 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testCompile 'junit:junit:4.12'
 }
-
 
 // // 12c9d1b865703e66e112315a2e3b62dcc9a26d6e
 
 // ./gradlew sonarqube \
 //   -Dsonar.host.url=http://localhost:9000 \
 //   -Dsonar.login=12c9d1b865703e66e112315a2e3b62dcc9a26d6e
-
 
 /*
 gradlew sonarqube -Dsonar.host.url=http://localhost:9000 -Dsonar.login=12c9d1b865703e66e112315a2e3b62dcc9a26d6e
