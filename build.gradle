@@ -1,18 +1,19 @@
 
 plugins {
-  id "org.sonarqube" version "2.6.2"
-  id 'java'
-  id 'application'
-}
-
-repositories {
-    mavenCentral()
+	id "org.sonarqube" version "2.6.2"
+	id 'java'
+	id 'application'
 }
 
 mainClassName = 'uon.sam.HelloWorld'
 
+repositories {
+	mavenCentral()
+}
+
+
 dependencies {
-    testCompile 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+	testCompile 'org.junit.jupiter:junit-jupiter-api:5.3.1'
 }
 
 

@@ -5,6 +5,8 @@ import java.io.PrintStream;
 public class Skull {
   public String name = "bone";
 
+	public int foo = -2;
+
   public void print() {
     print(System.out);
   }
